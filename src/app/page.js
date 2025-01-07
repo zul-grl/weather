@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <div className="relative w-full h-full">
       <div className="w-full h-screen">
+        <Border />
         <div className="w-full h-full flex">
           <Left />
           <Right />
         </div>
-        <Border />
       </div>
-    </div >
+    </div>
   );
 }
