@@ -1,4 +1,6 @@
 const Left = (props) => {
-  return <div className=" bg-black flex-1"></div>;
+  return (
+    <div className="w-1/2 h-full bg-black"></div>
+  );
 };
 export default Left;
