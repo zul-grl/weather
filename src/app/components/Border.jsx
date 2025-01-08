@@ -1,6 +1,6 @@
 const Border = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center">
+    <div className="fixed inset-0 flex items-center justify-center z-10">
       <div className="relative">
         <div className="border-[1px] border-gray-300 rounded-full w-[940px] h-[940px] flex items-center justify-center">
           <div className="border-[1px] border-gray-300 rounded-full w-[540px] h-[540px] flex items-center justify-center">
