@@ -1,9 +1,9 @@
-"use client";
 import { useState } from "react";
 import Card from "./Card";
 const Search = () => {
   const [cities, setCities] = useState([]);
   const [searched, setSearched] = useState([]);
+  const [selectedCity, setSelectedCity] = useState("");
 
   async function getData() {
     const result = await fetch("https://countriesnow.space/api/v0.1/countries");
@@ -22,10 +22,19 @@ const Search = () => {
     });
     setSearched(filtered);
   };
+  const handleCity = (city) => {
+    setSelectedCity(city);
+    setSearched([]);
+  };
+
   return (
-    <div className="flex gap-10 relative h-[100vh] w-[100vw] top-[100px] left-[200px]">
-      <div className="absolute p-10">
-        <div className="flex gap-4 py-6 px-5 bg-[#FFF] rounded-full shadow-md w-[567px] font-bold text-3xl ">
+    <div className="relative ">
+      <div className="absolute z-0">
+        <Card city={selectedCity} />
+      </div>
+
+      <div className="relative z-10 p-10">
+        <div className="flex gap-4  py-6 px-5 bg-white rounded-full shadow-md w-[567px] font-bold text-3xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="48"
@@ -43,14 +52,18 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search"
-            className="outline-none w-[100%]"
+            className="outline-none w-full"
             onChange={searchHandler}
           />
         </div>
-        <div className="mt-2.5 rounded-3xl bg-white/80 py-4 shadow-lg backdrop-blur-md">
-          {searched.length > 0 &&
-            searched.slice(0, 4).map((city) => (
-              <div className="flex px-6 py-py-2 items-center gap 4px">
+        {searched.length > 0 && (
+          <div className="absolute w-[567px] mt-2 rounded-2xl bg-white/80 py-4 shadow-lg backdrop-blur-md">
+            {searched.slice(0, 4).map((city, index) => (
+              <div
+                key={index}
+                onClick={() => handleCity(city)}
+                className="flex px-6 py-2 items-center gap-4 cursor-pointer "
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
@@ -72,10 +85,11 @@ const Search = () => {
                 <p className="text-2xl font-bold">{city}</p>
               </div>
             ))}
-        </div>
-        <Card />
+          </div>
+        )}
       </div>
     </div>
   );
 };
+
 export default Search;

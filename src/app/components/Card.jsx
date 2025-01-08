@@ -1,7 +1,42 @@
+import { HomeIcon } from "./Allsvg";
+import { LocationIcon } from "./Allsvg";
+import { HeartIcon } from "./Allsvg";
+import { ProfileIcon } from "./Allsvg";
 const Card = ({ city }) => {
+  const temperature = -11.3;
+  const condition = "Partly Cloudy";
+
   return (
-    <div className="z-20 w-103 h-207 rounded-10.5 overflow-hidden shadow-lg">
-      <h1>{city}</h1>
+    <div className="absolute top-[130px] left-[170px] w-103 h-207 rounded-3xl bg-white p-8 shadow-lg py-[56px] px-[40px]">
+      <div className="flex justify-between items-start mb-8">
+        <div>
+          <h4 className="text-gray-400 mb-2">Today</h4>
+          <h2 className="text-5xl font-extrabold text-gray-90">
+            {city || "Ulan Bator"}
+          </h2>
+        </div>
+        <LocationIcon className="stroke-gray-600" />
+      </div>
+
+      <div className="flex flex-col ">
+        <div className="w-[274px] h-[274px] mb-4">
+          <img src="./icon.png" alt="" />
+        </div>
+
+        <div className="text-transparent bg-clip-text font-extrabold text-[110px] -mt-10 bg-gradient-to-b from-black to-white">
+          {temperature}°
+        </div>
+        <div className="font-extrabold mb-12 h-6 text-[#FF8E27]">
+          {condition}
+        </div>
+      </div>
+
+      <div className="flex justify-between mt-12">
+        <HomeIcon />
+        <LocationIcon className="stroke-[#D1D5DB]" />
+        <HeartIcon />
+        <ProfileIcon />
+      </div>
     </div>
   );
 };
