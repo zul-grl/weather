@@ -1,25 +1,31 @@
 import Card from "./Card";
-
 export default function Right({
   selectedCity,
   condition,
   weather,
   date,
   conditionImages2,
+  getWeatherImage,
+  images,
 }) {
   return (
-    <div className="w-1/2 h-full bg-black relative flex justify-center items-center">
-      <div className="z-30 h-full">
-        <div className="shadow-lg bg-[#111827]/75 backdrop-blur-md w-[500px] h-[1000px] rounded-3xl p-8 py-[56px] px-[40px]">
-          <Card
-            city={selectedCity}
-            conditionImages={conditionImages2}
-            condition={condition}
-            weather={weather}
-            date={date}
-            headingColor="text-white"
-          />
-        </div>
+    <div className="w-1/2 h-full bg-black relative ">
+      <img
+        src="./Ellipse.svg"
+        alt=""
+        className="absolute right-[260px] bottom-[100px] w-[20%]] h-[20%]"
+      />
+      <div className="relative z-20 h-full flex justify-center items-center">
+        <Card
+          city={selectedCity}
+          getWeatherImage={getWeatherImage}
+          images={images}
+          condition={condition}
+          weather={weather}
+          date={date}
+          headingColor="text-white"
+          background="bg-[#111827]/80"
+        />
       </div>
     </div>
   );

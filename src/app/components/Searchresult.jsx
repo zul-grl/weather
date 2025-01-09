@@ -2,7 +2,7 @@ import { LocationIcon } from "./Allsvg";
 
 export default function SearchResults({ searched, getWeather }) {
   return (
-    <div className="absolute z-30 top-28 left-1/2 transform -translate-x-1/2 w-[567px] mt-2 rounded-2xl bg-white/80 py-4 shadow-lg backdrop-blur-md">
+    <div className="absolute z-30 top-[255px] left-[675px] transform -translate-x-1/2 w-[700px] mt-2 rounded-3xl bg-white/80 py-4 shadow-lg backdrop-blur-md">
       {searched.slice(0, 4).map((city, index) => (
         <div
           key={index}

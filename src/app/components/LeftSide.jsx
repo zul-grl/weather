@@ -10,10 +10,14 @@ export default function Left({
   condition,
   weather,
   date,
-  conditionImages1,
+  getWeatherImage,
+  images,
+  setValue,
+  value,
 }) {
   const searchHandler = (e) => {
     const search = e.target.value;
+    setValue(search);
     const filtered = cities.filter((city) =>
       city.toLowerCase().includes(search)
     );
@@ -25,24 +29,25 @@ export default function Left({
       <img
         alt=""
         src="./Group2.svg"
-        className=" absolute inset-0 left-[500px] top-[150px] w-[176px] h-[176px] object-fit: cover;"
+        className=" absolute inset-0 left-[400px] top-[200px] "
       ></img>
-      <SearchBar searchHandler={searchHandler} />
+
+      <SearchBar searchHandler={searchHandler} value={value} />
       {searched.length > 0 && (
         <SearchResults searched={searched} getWeather={getWeather} />
       )}
 
-      <div className="relative z-20 h-full">
-        <div className=" w-[500px] h-[1000px] rounded-3xl p-8 py-[56px] px-[40px] bg-white/75 p-8 shadow-lg">
-          <Card
-            city={selectedCity}
-            conditionImages={conditionImages1}
-            condition={condition}
-            weather={weather}
-            date={date}
-            headingColor="text-black"
-          />
-        </div>
+      <div className="relative z-20 h-full flex items-center">
+        <Card
+          city={selectedCity}
+          condition={condition}
+          weather={weather}
+          date={date}
+          headingColor="text-black"
+          background="bg-white/80"
+          getWeatherImage={getWeatherImage}
+          images={images}
+        />
       </div>
     </div>
   );
