@@ -14,6 +14,7 @@ export default function Home() {
   const [date, setDate] = useState("");
   const [nightcondition, setNightcondition] = useState();
   const [value, setValue] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const leftImages = {
     sun: "./sunny.png",
@@ -75,6 +76,7 @@ export default function Home() {
     setSelectedCity(city);
     setSearched([]);
     setValue("");
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -100,6 +102,7 @@ export default function Home() {
             setValue={setValue}
             getWeatherImage={getWeatherImage}
             images={leftImages}
+            loading={loading}
           />
           <Right
             selectedCity={selectedCity}
@@ -108,6 +111,7 @@ export default function Home() {
             date={date}
             getWeatherImage={getWeatherImage}
             images={rightImages}
+            loading={loading}
           />
         </div>
       </div>

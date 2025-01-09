@@ -7,6 +7,7 @@ export default function Right({
   conditionImages2,
   getWeatherImage,
   images,
+  loading
 }) {
   return (
     <div className="w-1/2 h-full bg-black relative ">
@@ -17,7 +18,7 @@ export default function Right({
       />
       <div className="relative z-20 h-full flex justify-center items-center">
         <Card
-          city={selectedCity}
+         selectedCity={selectedCity}
           getWeatherImage={getWeatherImage}
           images={images}
           condition={condition}
@@ -25,6 +26,7 @@ export default function Right({
           date={date}
           headingColor="text-white"
           background="bg-[#111827]/80"
+          loading={loading}
         />
       </div>
     </div>

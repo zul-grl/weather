@@ -14,6 +14,7 @@ export default function Left({
   images,
   setValue,
   value,
+  loading
 }) {
   const searchHandler = (e) => {
     const search = e.target.value;
@@ -47,6 +48,7 @@ export default function Left({
           background="bg-white/80"
           getWeatherImage={getWeatherImage}
           images={images}
+          loading={loading}
         />
       </div>
     </div>
