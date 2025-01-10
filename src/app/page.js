@@ -56,9 +56,15 @@ export default function Home() {
   async function getData() {
     const result = await fetch("https://countriesnow.space/api/v0.1/countries");
     const data = await result.json();
-    let incomeCities = data.data.map((country) => country.cities);
+    let incomeCities = data.data.map((country) =>
+      country.cities.map((city) => ({
+        city,
+        country: country.country,
+      }))
+    );
     incomeCities = incomeCities.flat();
     setCities(incomeCities);
+    console.log(incomeCities);
   }
 
   async function getWeather(city) {

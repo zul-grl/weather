@@ -40,7 +40,7 @@ const Card = ({
             />
           </div>
           <div className="text-transparent bg-clip-text font-extrabold text-[140px] text-center mt-4 bg-gradient-to-b from-black to-white">
-            {weather}
+            {weather}°
           </div>
         </div>
         <div className="font-extrabold text-[25px] mb-12 h-6 text-[#FF8E27]">

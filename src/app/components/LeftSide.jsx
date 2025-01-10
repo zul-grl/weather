@@ -14,13 +14,13 @@ export default function Left({
   images,
   setValue,
   value,
-  loading
+  loading,
 }) {
   const searchHandler = (e) => {
-    const search = e.target.value;
-    setValue(search);
+    setValue(e.target.value);
+    const search = e.target.value.toLowerCase();
     const filtered = cities.filter((city) =>
-      city.toLowerCase().includes(search)
+      city.city.toLowerCase().includes(search)
     );
     setSearched(filtered);
   };
