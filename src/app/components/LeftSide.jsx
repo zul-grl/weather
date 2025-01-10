@@ -18,6 +18,10 @@ export default function Left({
 }) {
   const searchHandler = (e) => {
     setValue(e.target.value);
+    if (!e.target.value.length) {
+      setSearched([]);
+      return;
+    }
     const search = e.target.value.toLowerCase();
     const filtered = cities.filter((city) =>
       city.city.toLowerCase().includes(search)

@@ -64,7 +64,6 @@ export default function Home() {
     );
     incomeCities = incomeCities.flat();
     setCities(incomeCities);
-    console.log(incomeCities);
   }
 
   async function getWeather(city) {
